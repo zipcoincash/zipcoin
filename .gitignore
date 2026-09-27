@@ -9,3 +9,5 @@ logs/
 vendor/privacy-pools-core/
 web/scripts/check-notes.mts
 OPS.md
+web/AGENTS.md
+web/CLAUDE.md
