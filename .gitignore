@@ -1,0 +1,11 @@
+node_modules/
+.next/
+.env
+.env.*
+!.env.example
+logs/
+*.log
+.DS_Store
+vendor/privacy-pools-core/
+web/scripts/check-notes.mts
+OPS.md
