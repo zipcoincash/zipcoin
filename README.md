@@ -20,7 +20,7 @@ Site: https://zipcoin.cash · X: [@zipcoincash](https://x.com/zipcoincash) · To
 
 ## Layout
 
-- `contracts/` — our Solidity (burn contract, mainnet-fork tests, deploy scripts) and deployment addresses. They live inside our fork of privacy-pools-core; see `contracts/README.md`.
+- `contracts/` — our Solidity (burn contract, mainnet-fork tests, deploy scripts) and deployment addresses. They live inside [our fork of privacy-pools-core](https://github.com/zipcoincash/privacy-pools-core/tree/zipcoin) (branch `zipcoin`); see `contracts/README.md`.
 - `web/` — Next.js app: UI, `/api/state` (pool index), `/api/relay` (relayer with gas floor + subsidy budget), `/api/feed`, `/api/stats`, `/api/health`; background loops for the association-set postman, watchdog alerts and fee sweeping (`src/instrumentation.ts`).
 - `scripts/` — deploy the stack for a token, go-live, local anvil-fork rehearsal.
 - `SPEC.md` — the original build spec.

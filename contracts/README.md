@@ -7,7 +7,7 @@ Everything that is ours, on top of 0xbow's [privacy-pools-core](https://github.c
 - `Zipcoin.s.sol` — deploy scripts: Entrypoint as an ERC1967 proxy over 0xbow's live implementation, pool + broadcaster per token.
 - `deployments/` — addresses.
 
-These files live at `packages/contracts/src/zipcoin`, `test/zipcoin`, `script/zipcoin` inside our fork of privacy-pools-core (branch `zipcoin`), together with a two-line remapping fix for forge 1.8. Run there:
+These files live at `packages/contracts/src/zipcoin`, `test/zipcoin`, `script/zipcoin` inside [our fork of privacy-pools-core](https://github.com/zipcoincash/privacy-pools-core/tree/zipcoin) (branch `zipcoin`), together with a two-line remapping fix for forge 1.8. Run there:
 
 ```bash
 ETHEREUM_MAINNET_RPC=<archive rpc> forge test --ffi --match-contract ZipcoinFork
