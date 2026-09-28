@@ -38,3 +38,7 @@ Wrong answers fail the authentication tag; there is no partial credit and nothin
 - No hints, no timer. The book has 32 chapters; the answers are in three of them.
 
 Code for everything else: https://github.com/zipcoincash/zipcoin
+
+## Proof the prize exists
+
+Deposit: [`0xfd190ccc…5e40c`](https://etherscan.io/tx/0xfd190ccce5a9e7fb1931de3f2432f62be644aec26b0cf635512755488ea5e40c), 2,814,071 ZC into the zipcoin Privacy Pool (0.5% vetting fee), leaving a note of 2,800,000.6 ZC controlled only by the encrypted phrase. The note is approved by the association set, so it can be unzipped right now. The wallet that deposited cannot spend it: the note belongs to the phrase, not the depositor.
