@@ -54,7 +54,7 @@ contract ZipcoinFork is IntegrationBase {
   PrivacyPoolComplex internal _zcPool;
   ZipBroadcaster internal _broadcaster;
 
-  function setUp() public override {
+  function setUp() public virtual override {
     super.setUp();
 
     // Launch $ZC on sender.family exactly like production: ETH pair, holder fees off, 0.1 ETH disclosed dev buy

@@ -1,0 +1,8 @@
+{
+  "prize": "2,800,000 ZC zipped in the zipcoin Privacy Pool",
+  "alg": "AES-256-GCM",
+  "key": "sha256(a1|a2|a3|a4|a5|a6), answers lowercase, joined with | and nothing else",
+  "nonce": "37a75c76969aba89de45fe0e",
+  "ciphertext": "a2d7e186d9c760bfe800172ff37d1aae73f1ab5961870401752f08fbf403766c5a6b4324222f19e1e2301b036360abb291f8861683a1b4ce88f605ec3b793f7525c0220042580fde3100d979bbd58f4ca639ef16e956860479b974c7a091",
+  "check": "4ddd92ee90f1eeeb24e3d1923f8c4d39d1dcf34e47b7b5cbf838109f62883630"
+}

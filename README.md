@@ -6,6 +6,7 @@ The currency from Vitalik Buterin's novel [Snowmoon](https://vitalik.eth.limo/sn
 
 - **Zip / unzip** — deposit $ZC into a Privacy Pool, withdraw any amount to any address with a zero-knowledge proof built in your browser. (0xbow [privacy-pools-core](https://github.com/0xbow-io/privacy-pools-core), the design from the 2023 Privacy Pools paper.)
 - **Burn to speak** — burn zipcoins to post a message; the bigger the burn, the louder. Publicly from a wallet, or anonymously from a zipped note through a relayer that cannot alter the message.
+- **The Doorstep** — burn at someone's door (ENS name or address) and optionally leave an anonymous gift. Every door has a page (`/door/vitalik.eth`) that collects everything burned there. Ch. 20.
 - **Veridian sales tax** — 0.5% of every trade flows to the treasury on-chain, in real time.
 
 Site: https://zipcoin.cash · X: [@zipcoincash](https://x.com/zipcoincash) · Token: `0x4E67DB19044549fF420860834c91b45BaD298722`

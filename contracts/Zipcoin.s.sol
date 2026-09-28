@@ -11,6 +11,7 @@ import {PrivacyPoolComplex} from 'contracts/implementations/PrivacyPoolComplex.s
 import {IPrivacyPool} from 'interfaces/IPrivacyPool.sol';
 
 import {ZipBroadcaster} from 'zipcoin/ZipBroadcaster.sol';
+import {ZipDoorstep} from 'zipcoin/ZipDoorstep.sol';
 
 interface ISendItFactory {
   function launchFee() external view returns (uint256);
@@ -179,5 +180,18 @@ contract LocalFork is ZipcoinBase {
     vm.stopBroadcast();
 
     _record('./deployments/zipcoin-local.json', _zc, address(_entrypoint), address(_pool), address(_broadcaster), _block);
+  }
+}
+
+/**
+ * @notice Deploy ZipDoorstep for an existing pool. No Entrypoint change, no registration.
+ * @dev env: POOL_ADDRESS, MIN_BURN
+ */
+contract DeployDoorstep is ZipcoinBase {
+  function run() external {
+    vm.startBroadcast();
+    ZipDoorstep _door = new ZipDoorstep(IPrivacyPool(vm.envAddress('POOL_ADDRESS')), vm.envUint('MIN_BURN'));
+    vm.stopBroadcast();
+    console.log('doorstep', address(_door));
   }
 }
