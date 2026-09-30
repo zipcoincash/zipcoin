@@ -14,27 +14,20 @@ Site: https://zipcoin.cash · X: [@zipcoincash](https://x.com/zipcoincash) · To
 
 ## Verify it yourself
 
-- Proofs are generated client-side: `web/src/lib/zip.ts` (`proveSpend`). Circuit artifacts in `web/public/artifacts/` match the SHA-256 digests published by the 0xbow SDK, and the on-chain verifiers are the ones securing 0xbow's own mainnet pool (`0x022891F9…7D6d`, `0xa45ACa86…5eC6`). Nobody on the zipcoin side can forge a proof.
+- Proofs are generated client-side, in your browser, with the [0xbow SDK](https://github.com/0xbow-io/privacy-pools-core) and its published circuit artifacts (`https://zipcoin.cash/artifacts/…`, SHA-256 digests match the SDK's). The on-chain verifiers are the ones securing 0xbow's own mainnet pool (`0x022891F9…7D6d`, `0xa45ACa86…5eC6`). Nobody on the zipcoin side can forge a proof.
 - The zip key is derived in the browser from a wallet signature (`masterKeys`, `mnemonicFromSignature`); it is never sent anywhere. The 12-word phrase is portable to any Privacy Pools tooling.
-- The relayer (`web/src/lib/server/relayer.ts`) can only submit what the proof already binds: recipient, fee and message live in `withdrawal.data`, which is hashed into the proof's `context`. See `contracts/ZipcoinFork.t.sol::test_speakAnon_relayerCannotRewriteMessage`.
+- The relayer can only submit what the proof already binds: recipient, fee and message live in `withdrawal.data`, which is hashed into the proof's `context`. See `contracts/ZipcoinFork.t.sol::test_speakAnon_relayerCannotRewriteMessage`. Every spending contract (`ZipBroadcaster`, `ZipDoorstep`, `ZipTeller`, `ZipTellerEth`, `ZipHearth`) is verified on Etherscan, has no owner, and holds nothing between calls.
 - The pool never depends on the association set for custody: any depositor can `ragequit` back to their own wallet.
 - The burn contract (`contracts/ZipBroadcaster.sol`) has no owner and holds nothing between calls. Burns go to `0x…dEaD`.
 
 ## Layout
 
 - `contracts/` — our Solidity (burn contract, mainnet-fork tests, deploy scripts) and deployment addresses. They live inside [our fork of privacy-pools-core](https://github.com/zipcoincash/privacy-pools-core/tree/zipcoin) (branch `zipcoin`); see `contracts/README.md`.
-- `web/` — Next.js app: UI, `/api/state` (pool index), `/api/relay` (relayer with gas floor + subsidy budget), `/api/feed`, `/api/stats`, `/api/health`; background loops for the association-set postman, watchdog alerts and fee sweeping (`src/instrumentation.ts`).
 - `scripts/` — deploy the stack for a token, go-live, local anvil-fork rehearsal.
 
-## Run
+The website (zipcoin.cash) is a separate, closed-source Next.js app. Everything that matters for trust is on chain and in `contracts/`: the pool, the spending contracts, and the proofs your browser builds with 0xbow's open SDK.
 
-```bash
-cd web && pnpm install && cp .env.example .env.local   # fill in RPCs and keys
-pnpm exec next dev -p 3100
-pnpm exec tsc --noEmit && pnpm exec eslint src && pnpm exec next build
-```
-
-Local mainnet-fork rehearsal (real launchpad token, real proofs): `anvil --fork-url <archive rpc> --chain-id 31337`, then `./scripts/local-up.sh`, then `pnpm dlx tsx scripts/e2e.mts` in `web/`.
+Local mainnet-fork rehearsal of the contracts: `anvil --fork-url <archive rpc> --chain-id 31337`, then `./scripts/local-up.sh`.
 
 ## Trust and risks
 
