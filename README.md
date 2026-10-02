@@ -9,6 +9,7 @@ The currency from Vitalik Buterin's novel [Snowmoon](https://vitalik.eth.limo/sn
 - **The Doorstep** — burn at someone's door (ENS name or address) and optionally leave an anonymous gift. Every door has a page (`/door/vitalik.eth`) that collects everything burned there. Ch. 20.
 - **Farcaster Mini App** — share any cast to zipcoin and knock at its author's door in one tap (`/fc`, `/fc/share`). Door links render as cards with a Knock button; people who added the app get buzzed when someone knocks at theirs (webhook + Postgres + `notifier.ts`). Manifest at `/.well-known/farcaster.json`.
 - **Veridian sales tax** — 0.5% of every trade flows to the treasury on-chain, in real time.
+- **Private AI chat** — [chat.zipcoin.cash](https://chat.zipcoin.cash): fund a browser-only key from a zipped note, deposit into [zkAPI](https://github.com/ethereum/zkapi)'s vault, talk to any model with short-lived keys straight from the browser. No account, no wallet connection; ask about a tx, a contract or a wallet without telling anyone it is yours; burn ZC to publish an answer to the Book; gift links. Open source: [zipcoincash/zipcoin-chat](https://github.com/zipcoincash/zipcoin-chat). Works with zkAPI (Open Anonymity + EF dAI); experimental, no affiliation.
 
 Site: https://zipcoin.cash · X: [@zipcoincash](https://x.com/zipcoincash) · Token: `0x4E67DB19044549fF420860834c91b45BaD298722`
 
@@ -24,6 +25,7 @@ Site: https://zipcoin.cash · X: [@zipcoincash](https://x.com/zipcoincash) · To
 
 - `contracts/` — our Solidity (burn contract, mainnet-fork tests, deploy scripts) and deployment addresses. They live inside [our fork of privacy-pools-core](https://github.com/zipcoincash/privacy-pools-core/tree/zipcoin) (branch `zipcoin`); see `contracts/README.md`.
 - `scripts/` — deploy the stack for a token, go-live, local anvil-fork rehearsal.
+- The chat app lives in its own repo: [zipcoin-chat](https://github.com/zipcoincash/zipcoin-chat). The agent SDK and MCP server: [zipcoin-agent](https://github.com/zipcoincash/zipcoin-agent).
 
 The website (zipcoin.cash) is a separate, closed-source Next.js app. Everything that matters for trust is on chain and in `contracts/`: the pool, the spending contracts, and the proofs your browser builds with 0xbow's open SDK.
 
