@@ -8,15 +8,10 @@ logs/
 .DS_Store
 vendor/privacy-pools-core/
 OPS.md
-# editor / assistant scratch
-**/AGENTS.md
-**/CLAUDE.md
-.cursor/
-.devin/
 web/scripts/check-notes.mts
 
 # The website is a separate, closed-source app; it lives outside this repo.
 web/
 
-# chat.zipcoin.cash app (closed-source like web/, see chat/README.md)
+# chat.zipcoin.cash lives in its own repo: github.com/zipcoincash/zipcoin-chat
 /chat/
